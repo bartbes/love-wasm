@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index dfb44de9..4f1bfe23 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1786,7 +1786,7 @@ if(MSVC OR MINGW)
+ endif()
+ 
+ add_library(${LOVE_LIB_NAME} SHARED ${LOVE_LIB_SRC} ${LOVE_RC})
+-set_target_properties(${LOVE_LIB_NAME} PROPERTIES C_VISIBILITY_PRESET hidden CXX_VISIBILITY_PRESET hidden VISIBILITY_INLINES_HIDDEN ON)
++set_target_properties(${LOVE_LIB_NAME} PROPERTIES C_VISIBILITY_PRESET default CXX_VISIBILITY_PRESET default VISIBILITY_INLINES_HIDDEN ON)
+ target_link_libraries(${LOVE_LIB_NAME} ${LOVE_LINK_LIBRARIES} ${LOVE_3P})
+ 
+ if(LOVE_EXTRA_DEPENDECIES)
