@@ -1,0 +1,18 @@
+package bartbes:love-wasm@0.0.1;
+
+interface graphics
+{
+	enum draw-mode
+	{
+		line,
+		fill,
+	}
+
+	origin: func();
+	clear: func();
+	print: func(text: string, x: f32, y: f32);
+	present: func();
+	set-color: func(r: f32, g: f32, b: f32, a: option<f32>);
+	rectangle: func(mode: draw-mode, x: f32, y: f32, w: f32, h: f32);
+	circle: func(mode: draw-mode, x: f32, y: f32, radius: f32, segments: option<u32>);
+}

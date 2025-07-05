@@ -1,0 +1,7 @@
+package bartbes:love-wasm@0.0.1;
+
+interface window
+{
+	set-window-title: func(title: string);
+	set-mode: func(width: u32, height: u32) -> bool;
+}

@@ -1,0 +1,6 @@
+package bartbes:love-wasm@0.0.1;
+
+interface mouse
+{
+	get-position: func() -> tuple<f64, f64>;
+}

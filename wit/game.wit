@@ -1,0 +1,7 @@
+package bartbes:love-wasm@0.0.1;
+
+// Should probably just be wasi:cli/run
+interface game
+{
+	main: func();
+}

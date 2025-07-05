@@ -1,0 +1,12 @@
+package bartbes:love-wasm@0.0.1;
+
+interface event
+{
+	record message
+	{
+		name: string,
+	}
+
+	pump: func();
+	poll: func() -> option<message>;
+}

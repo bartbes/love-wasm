@@ -1,0 +1,8 @@
+package bartbes:love-wasm@0.0.1;
+
+interface timer
+{
+	sleep: func(seconds: f64);
+	step: func();
+	get-delta: func() -> f64;
+}
