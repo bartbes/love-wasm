@@ -2,9 +2,12 @@ package bartbes:love-wasm@0.0.1;
 
 interface event
 {
+	use common.{%variant};
+
 	record message
 	{
 		name: string,
+		args: list<%variant>,
 	}
 
 	pump: func();

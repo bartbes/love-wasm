@@ -1,0 +1,13 @@
+package bartbes:love-wasm@0.0.1;
+
+interface common
+{
+	variant %variant {
+		boolean(bool),
+		number(f64),
+		%string(string),
+		nil,
+
+		unsupported // luserdata, loveobject, table
+	}
+}
