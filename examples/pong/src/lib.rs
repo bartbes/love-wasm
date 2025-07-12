@@ -152,7 +152,13 @@ impl Pong
         false
     }
 
-    fn keypressed(&self, _key: &str, _scancode: &str, _is_repeat: bool) {
+    fn keypressed(&self, key: &str, _scancode: &str, _is_repeat: bool) {
+        if key == "escape" {
+            love::event::push(&love::event::Message{
+                name: String::from("quit"),
+                args: vec![],
+            })
+        }
     }
 
     fn unknown_event(&self, _event: &love::event::Message) {

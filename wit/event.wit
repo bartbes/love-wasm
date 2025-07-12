@@ -12,4 +12,5 @@ interface event
 
 	pump: func();
 	poll: func() -> option<message>;
+	push: func(message: message);
 }
