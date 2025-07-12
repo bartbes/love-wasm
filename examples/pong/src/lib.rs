@@ -147,6 +147,47 @@ impl Pong
 
         love::graphics::print(&format!("{0} - {1}", self.score.0, self.score.1), Self::WIDTH/2.0-20.0, 20.0);
     }
+
+    fn quit(&self) -> bool {
+        false
+    }
+
+    fn keypressed(&self, _key: &str, _scancode: &str, _is_repeat: bool) {
+    }
+
+    fn unknown_event(&self, _event: &love::event::Message) {
+    }
+}
+
+enum DispatchResult
+{
+    Dispatched,
+    Unknown,
+    Quit,
+}
+
+fn dispatch_event(pong: &mut Pong, event: &love::event::Message) -> DispatchResult
+{
+    match &event.name as &str {
+        "quit" => {
+            if pong.quit() {
+                DispatchResult::Dispatched
+            }
+            else {
+                DispatchResult::Quit
+            }
+        },
+        "keypressed" => {
+             if let [love::common::Variant::String(key), love::common::Variant::String(scancode), love::common::Variant::Boolean(is_repeat)] = &event.args[..] {
+                 pong.keypressed(key, scancode, *is_repeat);
+                 DispatchResult::Dispatched
+             }
+             else {
+                 DispatchResult::Unknown
+             }
+        },
+        _ => DispatchResult::Unknown
+    }
 }
 
 impl game::Guest for Pong
@@ -164,8 +205,10 @@ impl game::Guest for Pong
 
             love::event::pump();
             for e in LoveEventIterator {
-                if e.name == "quit" {
-                    return
+                match dispatch_event(&mut pong, &e) {
+                    DispatchResult::Quit => return,
+                    DispatchResult::Dispatched => (),
+                    DispatchResult::Unknown => pong.unknown_event(&e),
                 }
             }
 

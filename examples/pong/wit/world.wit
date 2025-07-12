@@ -1,5 +1,6 @@
 package bartbes:love-wasm-pong-example@0.0.1;
 
+use bartbes:love-wasm/common@0.0.1;
 use bartbes:love-wasm/event@0.0.1;
 use bartbes:love-wasm/game@0.0.1;
 use bartbes:love-wasm/graphics@0.0.1;
@@ -9,6 +10,7 @@ use bartbes:love-wasm/timer@0.0.1;
 use bartbes:love-wasm/window@0.0.1;
 
 world game-world {
+	import common;
 	import event;
 	import graphics;
 	import keyboard;
