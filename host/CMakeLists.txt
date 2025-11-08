@@ -11,7 +11,7 @@ include(FetchContent)
 FetchContent_Declare(
 	wasmtime
 	GIT_REPOSITORY https://github.com/bytecodealliance/wasmtime.git
-	GIT_TAG 7d3e57e730924c4a484645554adcfed1c6905ebe
+	GIT_TAG 7d413555c075b635d1a4f237cbcc22827366cb1d
 	SOURCE_SUBDIR crates/c-api
 	CMAKE_ARGS -DBUILD_SHARED_LIBS=ON
 )
